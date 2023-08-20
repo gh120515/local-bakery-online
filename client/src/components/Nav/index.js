@@ -2,6 +2,8 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
+import { Avatar, AvatarBadge, AvatarGroup, WrapItem } from '@chakra-ui/react'
+
 function Nav() {
 
   function showNavigation() {
@@ -43,8 +45,11 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+          <WrapItem>
+            <Avatar name='icon' src='./images/icon.png' mr="5px" />
+            Su's Bakery
+          </WrapItem>
+          
         </Link>
       </h1>
 
