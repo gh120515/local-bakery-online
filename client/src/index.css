@@ -1,5 +1,5 @@
 :root {
-  --primary: #232F3E;
+  --primary: #2a3232;
   --secondary: #F3A847;
   --tertiary: #B12704;
   --light: #fafafa;
@@ -79,7 +79,8 @@ a:hover {
   text-decoration: underline;
 }
 
-header {
+header,
+footer {
   background: var(--primary);
 }
 

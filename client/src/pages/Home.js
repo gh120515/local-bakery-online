@@ -1,4 +1,5 @@
 import About from "../components/About";
+import Footer from "../components/Footer";
 import LandingPage from "../components/Landing";
 import { Stack } from '@chakra-ui/react'
 
@@ -7,6 +8,7 @@ const Home = () => {
     <Stack>
       <LandingPage />
       <About />
+      <Footer />
     </Stack>
   );
 };

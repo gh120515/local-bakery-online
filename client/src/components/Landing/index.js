@@ -6,7 +6,7 @@ import {
     VStack, 
     useBreakpointValue,
   } from '@chakra-ui/react'
-  import { Link, NavLink } from 'react-router-dom';
+  import { NavLink } from 'react-router-dom';
   import { HashLink } from 'react-router-hash-link';
   
   export default function LandingPage() {
