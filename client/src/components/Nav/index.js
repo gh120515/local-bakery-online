@@ -2,7 +2,7 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
-import { Avatar, AvatarBadge, AvatarGroup, WrapItem } from '@chakra-ui/react'
+import { Avatar, WrapItem } from '@chakra-ui/react'
 
 function Nav() {
 
@@ -10,6 +10,11 @@ function Nav() {
     if (Auth.loggedIn()) {
       return (
         <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/catalogue">
+              Catalogue
+            </Link>
+          </li>
           <li className="mx-1">
             <Link to="/orderHistory">
               Order History
@@ -26,6 +31,11 @@ function Nav() {
     } else {
       return (
         <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/catalogue">
+              Catalogue
+            </Link>
+          </li>
           <li className="mx-1">
             <Link to="/signup">
               Signup

@@ -26,7 +26,7 @@ export default function About() {
   return (
     <Box p={4}>
       <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
-        <Heading fontSize={'4xl'}>About Us</Heading>
+        <Heading id="about" fontSize={'4xl'}>About Us</Heading>
         <Text color={'gray.600'} fontSize={'xl'}>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
           tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.

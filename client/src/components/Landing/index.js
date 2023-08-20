@@ -6,9 +6,11 @@ import {
     VStack, 
     useBreakpointValue,
   } from '@chakra-ui/react'
-  import { NavLink } from 'react-router-dom';
+  import { Link, NavLink } from 'react-router-dom';
+  import { HashLink } from 'react-router-hash-link';
   
   export default function LandingPage() {
+
     return (
       <Flex
         w={'full'}
@@ -43,14 +45,15 @@ import {
                   See our Catalogue
                 </Button>
               </NavLink>
-              
-              <Button
-                bg={'green.400'}
-                rounded={'full'}
-                color={'white'}
-                _hover={{ bg: 'green.600' }}>
-                About Us
-              </Button>
+              <HashLink to="/#about">
+                <Button
+                  bg={'green.400'}
+                  rounded={'full'}
+                  color={'white'}
+                  _hover={{ bg: 'green.600' }}>
+                  About Us
+                </Button>
+              </HashLink >
             </Stack>
           </Stack>
         </VStack>
