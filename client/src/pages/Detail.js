@@ -91,6 +91,10 @@ function Detail() {
 
           <p>{currentProduct.description}</p>
 
+          <h4>Ingredients</h4>
+
+          <p>{currentProduct.ingredients}</p>
+
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}
             <button onClick={addToCart}>Add to Cart</button>
