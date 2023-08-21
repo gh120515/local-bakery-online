@@ -3,13 +3,15 @@ import ProductList from "../components/ProductList";
 import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
 
+import { Container } from "@chakra-ui/react";
+
 const Catalogue = () => {
   return (
-    <div className="container">
+    <Container >
       <CategoryMenu />
       <ProductList />
       <Cart />
-    </div>
+    </Container>
   );
 };
 

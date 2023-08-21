@@ -1,4 +1,4 @@
-import { Outlet, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -20,10 +20,7 @@ import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 
 // Chakra
-import { 
-  Grid,
-  GridItem
- } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -85,15 +82,6 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
-            <Grid templateColumns="repeat(6, 1fr)" bg="gray.50" minHeight={{ lg: '100hv'}}>
-                <GridItem
-                  as="main"
-                  colSpan={{ base: 6, lg: 4, xl: 5}}
-                  p="40px"
-                >
-                <Outlet />
-              </GridItem>
-            </Grid>
             <Footer />
           </StoreProvider>
         </div>

@@ -18,6 +18,7 @@ export default function Footer() {
       bg={"brand.900"}
       color={"gray.50"}>
       <Container
+        position={"sticky"}
         as={Stack}
         maxW={'6xl'}
         py={4}

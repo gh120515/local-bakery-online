@@ -10,14 +10,12 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
 // Chakra components
-import { 
-  List,
-  ListIcon,
-  ListItem,
-  CloseButton,
-  Flex,
-} from '@chakra-ui/react'
+import { List, ListIcon, ListItem } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom';
+import { 
+    CloseButton,
+ } from '@chakra-ui/icons'
+
 
 // cart icon
 import { FaCartShopping } from "react-icons/fa6";
@@ -77,7 +75,7 @@ const Cart = () => {
     return (
       <div className="cart-closed" onClick={toggleCart}>
         <span role="img" aria-label="trash">
-          <FaCartShopping className='shoppingCart' />
+          <FaCartShopping />
         </span>
       </div>
     );
@@ -85,7 +83,9 @@ const Cart = () => {
 
   return (
     <div className="cart">
-        <CloseButton onClick={toggleCart} align="end"/>
+      <div className="close" onClick={toggleCart}>
+        [close]
+      </div>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
         <div>

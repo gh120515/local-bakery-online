@@ -33,7 +33,7 @@
 
 .cart-closed {
   position: fixed;
-  top: 2%;
+  top: 50%;
   right: 1%;
   font-size: 2rem;
   cursor: pointer;
@@ -42,15 +42,17 @@
   padding: .25rem;
   width: 50px;
   height: 50px;
+  box-shadow: 0 10px 20px rgba(85, 81, 66, 0.6);
 }
 
 .cart-closed:hover {
   transform: rotate(8deg);
 }
 
-.cart img {
-  width: 70px;
-  margin-right: 1rem;
+.shoppingCart {
+  width: 40px;
+  margin-top: 8px;
+  margin-right: 15px;
 }
 
 .cart input {
@@ -69,7 +71,10 @@
   }
 
   .cart-closed {
-    position: relative;
-    margin: 0 auto;
+    position: fixed;
+    top: 50%;
+    right: 1%;
+    width: 50px;
+    height: 50px;
   }
 }
