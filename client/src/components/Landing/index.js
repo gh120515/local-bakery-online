@@ -45,7 +45,7 @@ import {
                   See our Catalogue
                 </Button>
               </NavLink>
-              <HashLink to="/#about">
+              <HashLink smooth to="/#about">
                 <Button
                   bg={'green.400'}
                   rounded={'full'}
