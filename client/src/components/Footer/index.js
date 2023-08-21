@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <Box
-      bg={"#2a3232"}
+      bg={"brand.900"}
       color={"gray.50"}>
       <Container
         as={Stack}

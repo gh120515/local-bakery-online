@@ -2,71 +2,75 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
-import { Avatar, WrapItem } from '@chakra-ui/react'
+import { 
+  Avatar, 
+  WrapItem,
+  Heading,
+  Tabs,
+  TabList,
+  Tab,  
+  Flex,
+  Box,
+  Spacer,
+} from '@chakra-ui/react'
 
 function Nav() {
 
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+        <Tabs isFitted align='end' variant='soft-rounded' colorScheme='green' mr="1rem" mt="0.75rem">
+          <TabList mb='1em'>
             <Link to="/catalogue">
-              Catalogue
-            </Link>
-          </li>
-          <li className="mx-1">
+              <Tab _selected={{ color: 'black', bg: 'green.100', fontWeight: 'bold' }}>Catalogue</Tab>
+            </Link>  
             <Link to="/orderHistory">
-              Order History
+              <Tab _selected={{ color: 'black', bg: 'green.100', fontWeight: 'bold' }}>Order History</Tab>
             </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+            <Link to="/" onClick={() => Auth.logout()}>
+              <Tab _selected={{ color: 'black', bg: 'green.100', fontWeight: 'bold' }}>Log Out</Tab>
+            </Link>
+          </TabList>
+        </Tabs>
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
+
+        <Tabs isFitted align='end' variant='soft-rounded' colorScheme='green' mr="1rem" mt="0.75rem">
+          <TabList mb='1em'>
             <Link to="/catalogue">
-              Catalogue
-            </Link>
-          </li>
-          <li className="mx-1">
+              <Tab _selected={{ color: 'black', bg: 'green.100', fontWeight: 'bold' }}>Catalogue</Tab>
+            </Link>  
             <Link to="/signup">
-              Signup
+              <Tab _selected={{ color: 'black', bg: 'green.100', fontWeight: 'bold' }}>Sign Up</Tab>
             </Link>
-          </li>
-          <li className="mx-1">
             <Link to="/login">
-              Login
+              <Tab _selected={{ color: 'black', bg: 'green.100', fontWeight: 'bold' }}>Log In</Tab>
             </Link>
-          </li>
-        </ul>
+          </TabList>
+        </Tabs>
       );
     }
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <WrapItem>
-            <Avatar name='icon' src='./images/icon.png' mr="5px" />
-            Su's Bakery
+    <Flex minWidth='max-content' alignItems='center' gap='2' bg="brand.900" color="gray.50">
+      <Box p='2'>
+          <Link to="/">
+            <WrapItem>
+              <Avatar name='icon' src='./images/icon.png' mt="0.4rem" ml="0.1rem"/>
+              <Heading m="0.6rem" size="xl">
+                Su's Bakery
+              </Heading>
           </WrapItem>
-          
-        </Link>
-      </h1>
-
+          </Link>
+        </Box>
+        <Spacer />
       <nav>
         {showNavigation()}
       </nav>
-    </header>
+    </Flex>
+
   );
 }
 
