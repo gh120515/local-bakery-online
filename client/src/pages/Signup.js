@@ -8,7 +8,6 @@ import { ADD_USER } from '../utils/mutations';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
 import { 
-  Container,
   Heading,
   Flex,
   Box,
@@ -66,14 +65,13 @@ function Signup(props) {
 
   return (
     
-      
       <Flex pt={{ base: '150px',  md: '75px'}} 
       minH={'100vh'}
       width={"100"}
       align={'center'}
       justify={'center'}
       >
-      <form onSubmit={handleFormSubmit} >
+      <form onSubmit={handleFormSubmit} style={{ width: '100%'}}>
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
 
 {/* =================================================================
