@@ -21,8 +21,7 @@ import OrderHistory from './pages/OrderHistory';
 
 // Chakra
 import { 
-  Grid,
-  GridItem
+  Spacer,
  } from '@chakra-ui/react'
 
 const httpLink = createHttpLink({
@@ -85,15 +84,7 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
-            <Grid templateColumns="repeat(6, 1fr)" bg="gray.50" minHeight={{ lg: '100hv'}}>
-                <GridItem
-                  as="main"
-                  colSpan={{ base: 6, lg: 4, xl: 5}}
-                  p="40px"
-                >
-                <Outlet />
-              </GridItem>
-            </Grid>
+            
             <Footer />
           </StoreProvider>
         </div>

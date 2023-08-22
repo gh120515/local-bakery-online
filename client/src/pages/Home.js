@@ -8,7 +8,6 @@ const Home = () => {
     <Stack>
       <LandingPage />
       <About />
-      <Footer />
     </Stack>
   );
 };

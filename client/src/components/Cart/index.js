@@ -16,6 +16,9 @@ import {
   ListItem,
   CloseButton,
   Flex,
+  Heading,
+  Button,
+  Text,
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom';
 
@@ -86,7 +89,7 @@ const Cart = () => {
   return (
     <div className="cart">
         <CloseButton onClick={toggleCart} align="end"/>
-      <h2>Shopping Cart</h2>
+        <Heading textAlign={'center'}>Shopping Cart</Heading>
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
@@ -94,10 +97,10 @@ const Cart = () => {
           ))}
 
           <div className="flex-row space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+            <Text as='b'>Total: ${calculateTotal()}</Text>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <Button onClick={submitCheckout} colorScheme='green'>Checkout</Button>
             ) : (
               <span>(log in to check out)</span>
             )}

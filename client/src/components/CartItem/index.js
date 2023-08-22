@@ -3,6 +3,9 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
+// Chakra components
+import { FaTrashCan } from "react-icons/fa6";
+
 const CartItem = ({ item }) => {
 
   const [, dispatch] = useStoreContext();
@@ -59,7 +62,7 @@ const CartItem = ({ item }) => {
             aria-label="trash"
             onClick={() => removeFromCart(item)}
           >
-            🗑️
+            <FaTrashCan />
           </span>
         </div>
       </div>
