@@ -55,7 +55,7 @@ function Nav() {
 
   return (
     
-      <Box bg={"brand.900"} color={"gray.50"}>
+      <Box bg={"brand.900"} color={"gray.50"} position="fixed" width="100%" mt="-5px" zIndex={3}>
         <Container
           position={"sticky"}
           as={Stack}
