@@ -10,28 +10,19 @@ import { FaCartPlus, FaHeartCirclePlus } from 'react-icons/fa6';
 // Chakra Components
 
 import {
-  Flex,
-  Circle,
-  Box,
   Image,
-  Badge,
-  useColorModeValue,
-  Icon,
-  chakra,
-  Tooltip,
-  SimpleGrid,
   Button,
   Text,
   Card, 
-  CardHeader, 
   CardBody, 
   CardFooter, 
   Heading, 
-  HStack, 
+  VStack, 
   Divider,
-  Container,
   Stack,
   ButtonGroup,
+  useToast,
+  Box,
 } from '@chakra-ui/react'
 
 // =================================================================
@@ -42,6 +33,8 @@ import {
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
+
+  const toast = useToast()
 
   const {
     image,
@@ -80,35 +73,46 @@ function ProductItem(item) {
 // =================================================================
 
   return (
-    <Card maxW='sm'>
-    <CardBody>
-      <Link to={`/products/${_id}`}>
-        <Image
-          src={`/images/${image}`}
-          alt={name}
-          borderRadius='lg'
-        />
-      </Link>
-      <Stack mt='6' spacing='3'>
-        <Heading size='md'>{name}</Heading>
-        {/* <Text>
-          Text area
-        </Text> */}
-        <Text color='blue.600' fontSize='2xl'>
-        ${price}
-        </Text>
-      </Stack>
-    </CardBody>
-    <Divider />
-    <CardFooter>
-      <ButtonGroup spacing='2' >
-        <Button onClick={addToCart} variant='solid' colorScheme='green'>
-        <FaCartPlus size='2rem'/>
-        </Button>
-        {/* <Button colorScheme='pink'><FaHeartCirclePlus size='2rem'/></Button> */}
-      </ButtonGroup>
-    </CardFooter>
-        </Card>
+    <VStack textAlign={'center'}>
+      <Card maxW='sm' align={'center'}>
+        <CardBody>
+          <Link to={`/products/${_id}`}>
+            <Image
+              src={`/images/${image}`}
+              alt={name}
+              borderRadius='lg'
+            />
+          </Link>
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>{name}</Heading>
+            {/* <Text>
+              Text area
+            </Text> */}
+            <Text color='blue.600' fontSize='2xl'>
+            ${price}
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter align={'center'}>
+          {/* room for other buttons / functionalities */}
+          <ButtonGroup spacing='2' >
+            <Button onClick={() => { addToCart(); toast({ 
+              description: 'Added to Cart!',
+              // status: 'success',
+              duration: 9000,
+              isClosable: true,
+              });}} 
+              variant='solid'
+              colorScheme='green'
+              >
+            <FaCartPlus size='2rem'/>
+            </Button>
+            {/* <Button colorScheme='pink'><FaHeartCirclePlus size='2rem' /></Button> */}
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+    </VStack>
   );
 }
 
