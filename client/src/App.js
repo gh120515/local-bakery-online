@@ -22,6 +22,7 @@ import OrderHistory from './pages/OrderHistory';
 // Chakra
 import { 
   Spacer,
+  Container,
  } from '@chakra-ui/react'
 
 const httpLink = createHttpLink({
@@ -47,7 +48,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
           <StoreProvider >
             <Nav />
             <Routes>
@@ -84,10 +84,8 @@ function App() {
                 element={<NoMatch />} 
               />
             </Routes>
-            
             <Footer />
           </StoreProvider>
-        </div>
       </Router>
     </ApolloProvider>
   );

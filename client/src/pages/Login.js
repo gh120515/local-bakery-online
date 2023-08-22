@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
+import { Container  } from "@chakra-ui/react";
+
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
@@ -30,7 +32,8 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
+    // Add padding-top to take into responsive Navbar sizes
+    <Container pt={{ base: '150px',  md: '75px'}}>
       <Link to="/signup">← Go to Signup</Link>
 
       <h2>Login</h2>
@@ -64,7 +67,7 @@ function Login(props) {
           <button type="submit">Submit</button>
         </div>
       </form>
-    </div>
+    </Container>
   );
 }
 

@@ -1,9 +1,11 @@
 import React from "react";
 import Jumbotron from "../components/Jumbotron";
 
+import { Container } from "@chakra-ui/react";
+
 const NoMatch = () => {
   return (
-    <div>
+    <Container pt={{ base: '150px',  md: '75px'}}>
       <Jumbotron>
         <h1>404 Page Not Found</h1>
         <h1>
@@ -12,7 +14,7 @@ const NoMatch = () => {
           </span>
         </h1>
       </Jumbotron>
-    </div>
+    </Container>
   );
 };
 

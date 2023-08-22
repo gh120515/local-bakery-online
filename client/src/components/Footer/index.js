@@ -16,9 +16,10 @@ export default function Footer() {
   return (
     <Box
       bg={"brand.900"}
-      color={"gray.50"}>
+      color={"gray.50"} >
       <Container
         position={"sticky"}
+        bottom={'0'}
         as={Stack}
         maxW={'6xl'}
         py={4}
