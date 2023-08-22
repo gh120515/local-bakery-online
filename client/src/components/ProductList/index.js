@@ -7,6 +7,41 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
+// Chakra Components
+
+import {
+  Flex,
+  Circle,
+  Box,
+  Image,
+  Badge,
+  useColorModeValue,
+  Icon,
+  chakra,
+  Tooltip,
+  SimpleGrid,
+  Button,
+  Text,
+  Card, 
+  CardHeader, 
+  CardBody, 
+  CardFooter, 
+  Heading, 
+  HStack, 
+  Divider,
+  Container,
+  Grid,
+  GridItem,
+} from '@chakra-ui/react'
+import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
+import { FiShoppingCart } from 'react-icons/fi'
+
+// =================================================================
+// 
+// Display Product Functions
+// 
+// =================================================================
+
 function ProductList() {
   const [state, dispatch] = useStoreContext();
 
@@ -43,27 +78,42 @@ function ProductList() {
     );
   }
 
+// =================================================================
+// 
+// Render Products
+// 
+// =================================================================
+
   return (
-    <div className="my-2">
-      <h2>Our Products:</h2>
+    <Container>
+      <Heading size='lg'>Our Products:</Heading>
+      <Grid templateColumns="repeat(6, 1fr)" bg="">
       {state.products.length ? (
-        <div className="flex-row">
-          {filterProducts().map((product) => (
-            <ProductItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              name={product.name}
-              price={product.price}
-              ingredients={product.ingredients}
-            />
-          ))}
-        </div>
+        <GridItem
+        as="main"
+        colSpan={{ base: 6, lg: 4, xl: 5}}
+        p="40px"
+        >
+          <SimpleGrid spacing={10} minChildWidth={200}>
+            {filterProducts().map((product) => (
+              <ProductItem
+                key={product._id}
+                _id={product._id}
+                image={product.image}
+                name={product.name}
+                price={product.price}
+                ingredients={product.ingredients}
+              />
+            ))}
+          </SimpleGrid>
+          </GridItem>
+        
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </div>
+      </Grid>
+    </Container>
   );
 }
 

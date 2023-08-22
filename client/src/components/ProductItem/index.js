@@ -5,6 +5,41 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
+import { FaCartPlus, FaHeartCirclePlus } from 'react-icons/fa6';
+
+// Chakra Components
+
+import {
+  Flex,
+  Circle,
+  Box,
+  Image,
+  Badge,
+  useColorModeValue,
+  Icon,
+  chakra,
+  Tooltip,
+  SimpleGrid,
+  Button,
+  Text,
+  Card, 
+  CardHeader, 
+  CardBody, 
+  CardFooter, 
+  Heading, 
+  HStack, 
+  Divider,
+  Container,
+  Stack,
+  ButtonGroup,
+} from '@chakra-ui/react'
+
+// =================================================================
+// 
+// Product Functions
+// 
+// =================================================================
+
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
 
@@ -38,20 +73,42 @@ function ProductItem(item) {
     }
   }
 
+// =================================================================
+// 
+// Render Product Cards
+// 
+// =================================================================
+
   return (
-    <div className="card px-1 py-1">
+    <Card maxW='sm'>
+    <CardBody>
       <Link to={`/products/${_id}`}>
-        <img
-          alt={name}
+        <Image
           src={`/images/${image}`}
+          alt={name}
+          borderRadius='lg'
         />
-        <p>{name}</p>
       </Link>
-      <div>
-        <span>${price}</span>
-      </div>
-      <button onClick={addToCart}>Add to cart</button>
-    </div>
+      <Stack mt='6' spacing='3'>
+        <Heading size='md'>{name}</Heading>
+        {/* <Text>
+          Text area
+        </Text> */}
+        <Text color='blue.600' fontSize='2xl'>
+        ${price}
+        </Text>
+      </Stack>
+    </CardBody>
+    <Divider />
+    <CardFooter>
+      <ButtonGroup spacing='2' >
+        <Button onClick={addToCart} variant='solid' colorScheme='green'>
+        <FaCartPlus size='2rem'/>
+        </Button>
+        {/* <Button colorScheme='pink'><FaHeartCirclePlus size='2rem'/></Button> */}
+      </ButtonGroup>
+    </CardFooter>
+        </Card>
   );
 }
 

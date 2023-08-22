@@ -13,6 +13,7 @@ import {
 
     return (
       <Flex
+        pt={{ base: '100px',  md: '10px'}}
         w={'full'}
         h={'100vh'}
         backgroundImage={
