@@ -87,32 +87,23 @@ function ProductList() {
   return (
     <Container>
       <Heading size='lg'>Our Products:</Heading>
-      <Grid templateColumns="repeat(6, 1fr)" bg="">
       {state.products.length ? (
-        <GridItem
-        as="main"
-        colSpan={{ base: 6, lg: 4, xl: 5}}
-        p="40px"
-        >
-          <SimpleGrid spacing={10} minChildWidth={200}>
-            {filterProducts().map((product) => (
-              <ProductItem
-                key={product._id}
-                _id={product._id}
-                image={product.image}
-                name={product.name}
-                price={product.price}
-                ingredients={product.ingredients}
-              />
-            ))}
-          </SimpleGrid>
-          </GridItem>
-        
+        <div className="flex-row">
+          {filterProducts().map((product) => (
+            <ProductItem
+              key={product._id}
+              _id={product._id}
+              image={product.image}
+              name={product.name}
+              price={product.price}
+              ingredients={product.ingredients}
+            />
+          ))}
+        </div>
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
-      </Grid>
     </Container>
   );
 }

@@ -23,6 +23,7 @@ import {
   ButtonGroup,
   useToast,
   Box,
+  GridItem,
 } from '@chakra-ui/react'
 
 // =================================================================
@@ -73,6 +74,7 @@ function ProductItem(item) {
 // =================================================================
 
   return (
+    <GridItem>
     <VStack textAlign={'center'}>
       <Card maxW='sm' align={'center'}>
         <CardBody>
@@ -113,6 +115,7 @@ function ProductItem(item) {
         </CardFooter>
       </Card>
     </VStack>
+    </GridItem>
   );
 }
 
