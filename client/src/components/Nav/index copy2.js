@@ -8,10 +8,10 @@ import {
   Heading,
   Tabs,
   TabList,
-  Tab, 
+  Tab,  
+  Flex,
   Box,
-  Container,
-  Stack,
+  Spacer,
 } from '@chakra-ui/react'
 
 function Nav() {
@@ -54,34 +54,23 @@ function Nav() {
   }
 
   return (
-    
-      <Box bg={"brand.900"} color={"gray.50"} position="fixed" width="100%" zIndex={3}>
-        <Container
-          position={"sticky"}
-          as={Stack}
-          maxW={'6xl'}
-          // py={4}
-          direction={{ base: 'column', md: 'row' }}
-          spacing={4}
-          justify={{ base: 'center', md: 'space-between' }}
-          align={{ base: 'center', md: 'center' }}>
-            <Link to="/">
-              <WrapItem mt="0.1rem">
-                <Avatar name='icon' src='./images/icon.png' mt="0.4rem" ml="0.1rem"/>
-                <Heading m="0.6rem" size="xl">
-                  Su's Bakery
-                </Heading>
-              </WrapItem>
-            </Link>
-              <Stack direction={'row'} spacing={6}>
-             
-                {/* display Navbar options based on user login status */}
-                  {showNavigation()}
-           
-              </Stack>
-        </Container>
-          
+    <Flex minWidth='max-content' alignItems='center' gap='2' bg="brand.900" color="gray.50">
+      <Box p='2'>
+          <Link to="/">
+            <WrapItem>
+              <Avatar name='icon' src='./images/icon.png' mt="0.4rem" ml="0.1rem"/>
+              <Heading m="0.6rem" size="xl">
+                Su's Bakery
+              </Heading>
+          </WrapItem>
+          </Link>
         </Box>
+        <Spacer />
+      <nav>
+        {showNavigation()}
+      </nav>
+    </Flex>
+
   );
 }
 

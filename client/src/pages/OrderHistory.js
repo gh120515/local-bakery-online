@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
 
+import { Container } from "@chakra-ui/react";
+
 function OrderHistory() {
   const { data } = useQuery(QUERY_USER);
   let user;
@@ -14,7 +16,7 @@ function OrderHistory() {
 
   return (
     <>
-      <div className="container my-1">
+      <Container pt={{ base: '150px',  md: '75px'}}>
         <Link to="/">← Back to Products</Link>
 
         {user ? (
@@ -44,7 +46,7 @@ function OrderHistory() {
             ))}
           </>
         ) : null}
-      </div>
+      </Container>
     </>
   );
 }

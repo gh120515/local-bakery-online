@@ -14,6 +14,10 @@ import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 
+// Chakra components
+
+import { Container } from "@chakra-ui/react";
+
 function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
@@ -85,11 +89,15 @@ function Detail() {
     <>
       {currentProduct && cart ? (
         <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+          <Link to="/" >← Back to Products</Link>
 
           <h2>{currentProduct.name}</h2>
 
           <p>{currentProduct.description}</p>
+
+          <h4>Ingredients</h4>
+
+          <p>{currentProduct.ingredients}</p>
 
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}

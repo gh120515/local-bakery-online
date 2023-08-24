@@ -7,41 +7,6 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
-// Chakra Components
-
-import {
-  Flex,
-  Circle,
-  Box,
-  Image,
-  Badge,
-  useColorModeValue,
-  Icon,
-  chakra,
-  Tooltip,
-  SimpleGrid,
-  Button,
-  Text,
-  Card, 
-  CardHeader, 
-  CardBody, 
-  CardFooter, 
-  Heading, 
-  HStack, 
-  Divider,
-  Container,
-  Grid,
-  GridItem,
-} from '@chakra-ui/react'
-import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
-import { FiShoppingCart } from 'react-icons/fi'
-
-// =================================================================
-// 
-// Display Product Functions
-// 
-// =================================================================
-
 function ProductList() {
   const [state, dispatch] = useStoreContext();
 
@@ -78,15 +43,9 @@ function ProductList() {
     );
   }
 
-// =================================================================
-// 
-// Render Products
-// 
-// =================================================================
-
   return (
-    <Container>
-      <Heading size='lg'>Our Products:</Heading>
+    <div className="my-2">
+      <h2>Our Products:</h2>
       {state.products.length ? (
         <div className="flex-row">
           {filterProducts().map((product) => (
@@ -104,7 +63,7 @@ function ProductList() {
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </Container>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import { Outlet, BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -20,10 +20,7 @@ import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 
 // Chakra
-import { 
-  Spacer,
-  Container,
- } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/react'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -48,6 +45,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <div>
           <StoreProvider >
             <Nav />
             <Routes>
@@ -86,6 +84,7 @@ function App() {
             </Routes>
             <Footer />
           </StoreProvider>
+        </div>
       </Router>
     </ApolloProvider>
   );

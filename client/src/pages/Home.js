@@ -1,15 +1,13 @@
-import React from "react";
-import ProductList from "../components/ProductList";
-import CategoryMenu from "../components/CategoryMenu";
-import Cart from "../components/Cart";
+import About from "../components/About";
+import LandingPage from "../components/Landing";
+import { Stack } from '@chakra-ui/react'
 
 const Home = () => {
   return (
-    <div className="container">
-      <CategoryMenu />
-      <ProductList />
-      <Cart />
-    </div>
+    <Stack>
+      <LandingPage />
+      <About />
+    </Stack>
   );
 };
 

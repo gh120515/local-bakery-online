@@ -5,8 +5,37 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
+import { FaCartPlus, FaHeartCirclePlus } from 'react-icons/fa6';
+
+// Chakra Components
+
+import {
+  Image,
+  Button,
+  Text,
+  Card, 
+  CardBody, 
+  CardFooter, 
+  Heading, 
+  VStack, 
+  Divider,
+  Stack,
+  ButtonGroup,
+  useToast,
+  Box,
+  GridItem,
+} from '@chakra-ui/react'
+
+// =================================================================
+// 
+// Product Functions
+// 
+// =================================================================
+
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
+
+  const toast = useToast()
 
   const {
     image,
@@ -38,20 +67,55 @@ function ProductItem(item) {
     }
   }
 
+// =================================================================
+// 
+// Render Product Cards
+// 
+// =================================================================
+
   return (
-    <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
-        <img
-          alt={name}
-          src={`/images/${image}`}
-        />
-        <p>{name}</p>
-      </Link>
-      <div>
-        <span>${price}</span>
-      </div>
-      <button onClick={addToCart}>Add to cart</button>
-    </div>
+    <GridItem>
+    <VStack textAlign={'center'}>
+      <Card maxW='sm' align={'center'}>
+        <CardBody>
+          <Link to={`/products/${_id}`}>
+            <Image
+              src={`/images/${image}`}
+              alt={name}
+              borderRadius='lg'
+            />
+          </Link>
+          <Stack mt='6' spacing='3'>
+            <Heading size='md'>{name}</Heading>
+            {/* <Text>
+              Text area
+            </Text> */}
+            <Text color='blue.600' fontSize='2xl'>
+            ${price}
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter align={'center'}>
+          {/* room for other buttons / functionalities */}
+          <ButtonGroup spacing='2' >
+            <Button onClick={() => { addToCart(); toast({ 
+              description: 'Added to Cart!',
+              // status: 'success',
+              duration: 9000,
+              isClosable: true,
+              });}} 
+              variant='solid'
+              colorScheme='green'
+              >
+            <FaCartPlus size='2rem'/>
+            </Button>
+            {/* <Button colorScheme='pink'><FaHeartCirclePlus size='2rem' /></Button> */}
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+    </VStack>
+    </GridItem>
   );
 }
 
