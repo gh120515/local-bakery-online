@@ -15,6 +15,8 @@ import {
   Heading,
   Button,
   Text,
+  Container,
+  Card,
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom';
 
@@ -83,34 +85,34 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
-        <CloseButton onClick={toggleCart} align="end"/>
+
+      <div className='cart' align='center'>
+        <CloseButton className='cart-close-button' onClick={toggleCart} align="end"/>
         <Heading textAlign={'center'}>Shopping Cart</Heading>
+        
       {state.cart.length ? (
         <div>
           {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
 
-          <div className="flex-row space-between">
-            <Text as='b'>Total: ${calculateTotal()}</Text>
+          <div m='5px'>
+            <Text size='md'as='b'>Total: ${calculateTotal()}  </Text>
 
             {Auth.loggedIn() ? (
               <Button onClick={submitCheckout} colorScheme='green'>Checkout</Button>
             ) : (
-              <span>(log in to check out)</span>
+              <Button>(log in to check out)</Button>
             )}
           </div>
         </div>
       ) : (
         <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
           You haven't added anything to your cart yet!
         </h3>
       )}
-    </div>
+      </div>
+
   );
 };
 

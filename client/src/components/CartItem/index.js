@@ -6,6 +6,27 @@ import { idbPromise } from "../../utils/helpers";
 // Chakra components
 import { FaTrashCan } from "react-icons/fa6";
 
+import { 
+  Button,
+  Text,
+  Container,
+  Card,
+  NumberInput,
+  useNumberInput,
+  HStack,
+  Input,
+  Stack,
+  Box,
+  Flex,
+  useToast,
+} from '@chakra-ui/react'
+
+// =================================================================
+// 
+// Cart Sidebar Functions
+// 
+// =================================================================
+
 const CartItem = ({ item }) => {
 
   const [, dispatch] = useStoreContext();
@@ -39,34 +60,68 @@ const CartItem = ({ item }) => {
     }
   }
 
+  // Chakra custom hooks
+
+  const toast = useToast()
+
+  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
+    useNumberInput({
+      step: 1,
+      min: 0,
+    })
+
+  const inc = getIncrementButtonProps()
+  const dec = getDecrementButtonProps()
+  const input = getInputProps()
+
+// =================================================================
+// 
+// Render Cart contents
+// 
+// =================================================================
+
   return (
-    <div className="flex-row">
-      <div>
+   
+    <Container align='center' borderRadius={20}>
+      <Card m='0.5rem' borderRadius={10}>
+  
         <img
           src={`/images/${item.image}`}
           alt=""
         />
-      </div>
-      <div>
-        <div>{item.name}, ${item.price}</div>
-        <div>
-          <span>Qty:</span>
-          <input
-            type="number"
-            placeholder="1"
-            value={item.purchaseQuantity}
-            onChange={onChange}
-          />
-          <span
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          >
-            <FaTrashCan />
-          </span>
-        </div>
-      </div>
-    </div>
+     
+        <Text><strong>{item.name}:</strong> ${item.price}</Text>
+
+        <NumberInput>
+              <Text> Qty: </Text>
+              <Input 
+                type="number"
+                placeholder="1"
+                value={item.purchaseQuantity}
+                onChange={onChange}
+                textAlign='center'
+              />
+
+        </NumberInput>
+
+        <Button 
+          m='0.5rem' 
+          onClick={() => { removeFromCart(item); toast({ 
+            description: 'Removed from Cart!',
+            // status: 'success',
+            duration: 9000,
+            isClosable: true,
+            status: 'warning'
+            });}} 
+            variant='solid'
+            bg='gray.300'
+            >
+          <FaTrashCan />
+        </Button>
+            
+      </Card>
+    </Container>
+    
   );
 }
 
