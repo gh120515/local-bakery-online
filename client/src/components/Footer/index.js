@@ -29,7 +29,7 @@ export default function Footer() {
         align={{ base: 'center', md: 'center' }}>
         <Text>© <Moment date={start} format="YYYY"></Moment> Su's Bakery. All rights reserved</Text>
         <Stack direction={'row'} spacing={6}>
-          <Link label={'Instagram'} fontSize="2rem" href={'#'}>
+          <Link label={'Instagram'} fontSize="2rem" href={'https://www.instagram.com/imsubakery'}>
             <FaInstagram />
           </Link>
         </Stack>
