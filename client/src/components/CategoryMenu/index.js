@@ -8,6 +8,31 @@ import {
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
+// Chakra Components
+
+import {
+  Heading,
+  Image,
+  Button,
+  Text,
+  Card, 
+  CardBody, 
+  CardFooter, 
+  VStack, 
+  Divider,
+  Stack,
+  ButtonGroup,
+  useToast,
+  Box,
+  GridItem,
+} from '@chakra-ui/react'
+
+// =================================================================
+// 
+// Category Functions
+// 
+// =================================================================
+
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
 
@@ -41,18 +66,27 @@ function CategoryMenu() {
     });
   };
 
+// =================================================================
+// 
+// Render Categories
+// 
+// =================================================================
+
   return (
     <div>
-      <h2>Choose a Category:</h2>
+      <Heading>Choose a Category:</Heading>
       {categories.map((item) => (
-        <button
+        <Button
+          margin='0.2rem'
+          variant='solid'
+          colorScheme='green'
           key={item._id}
           onClick={() => {
             handleClick(item._id);
           }}
         >
           {item.name}
-        </button>
+        </Button>
       ))}
     </div>
   );

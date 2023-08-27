@@ -8,16 +8,17 @@ import {
   } from '@chakra-ui/react'
   import { NavLink } from 'react-router-dom';
   import { HashLink } from 'react-router-hash-link';
-  
+ 
   export default function LandingPage() {
-
     return (
       <Flex
         pt={{ base: '100px',  md: '10px'}}
         w={'full'}
         h={'100vh'}
+        // Note: official recommendation for Heroku image: store uploaded files on a third-party service 
+        // https://stackoverflow.com/questions/54993171/remote-image-working-on-local-react-instance-failing-on-heroku
         backgroundImage={
-          'url(./images/su-bakery-web.png)'
+          `url("https://imgur.com/Yy4p3if.png")` 
         }
         backgroundSize={'cover'}
         backgroundPosition={'right center'}>
