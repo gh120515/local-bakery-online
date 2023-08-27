@@ -13,14 +13,30 @@ import {
 } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
 
-// Replace test data with your own
-const features = Array.apply(null, Array(8)).map(function (x, i) {
-  return {
-    id: i,
-    title: 'Lorem ipsum dolor sit amet',
-    text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.',
-  }
-})
+// Features dotpoints
+const features = [
+  {
+    id: 1,
+    title: 'Based in Adelaide',
+    text: '',
+  },
+  {
+    id: 2,
+    title: 'High quality ingredients',
+    text: '',
+  },
+  {
+    id: 3,
+    title: 'Freshly baked for any occasion',
+    text: '',
+  },
+  {
+    id: 4,
+    title: 'Home made & Made with love',
+    text: '',
+  },
+
+]
 
 export default function About() {
   return (
@@ -28,8 +44,7 @@ export default function About() {
       <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
         <Heading id="about" fontSize={'4xl'}>About Us</Heading>
         <Text color={'gray.600'} fontSize={'xl'}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-          tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        Based in Adelaide, home made local baked goods for individuals and groups alike!
         </Text>
       </Stack>
 

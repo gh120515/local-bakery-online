@@ -12,19 +12,7 @@ import { idbPromise } from '../../utils/helpers';
 
 import {
   Heading,
-  Image,
   Button,
-  Text,
-  Card, 
-  CardBody, 
-  CardFooter, 
-  VStack, 
-  Divider,
-  Stack,
-  ButtonGroup,
-  useToast,
-  Box,
-  GridItem,
 } from '@chakra-ui/react'
 
 // =================================================================

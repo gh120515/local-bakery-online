@@ -11,11 +11,7 @@ import './style.css';
 
 // Chakra components
 import { 
-  List,
-  ListIcon,
-  ListItem,
   CloseButton,
-  Flex,
   Heading,
   Button,
   Text,
