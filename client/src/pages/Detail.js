@@ -31,6 +31,12 @@ import {
   CardBody,
 } from '@chakra-ui/react'
 
+// =================================================================
+// 
+// Product Detail Page Functions
+// 
+// =================================================================
+
 function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
@@ -89,18 +95,24 @@ function Detail() {
     }
   };
 
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentProduct._id,
-    });
+  // const removeFromCart = () => {
+  //   dispatch({
+  //     type: REMOVE_FROM_CART,
+  //     _id: currentProduct._id,
+  //   });
 
-    idbPromise('cart', 'delete', { ...currentProduct });
-  };
+  //   idbPromise('cart', 'delete', { ...currentProduct });
+  // };
 
   // Chakra functions
   const { isOpen, onOpen, onClose } = useDisclosure()
   const toast = useToast()
+
+// =================================================================
+// 
+// Render individual Product
+// 
+// =================================================================
 
   return (
     
