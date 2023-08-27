@@ -13,6 +13,7 @@ import { idbPromise } from '../../utils/helpers';
 import {
   Heading,
   Button,
+  Container,
 } from '@chakra-ui/react'
 
 // =================================================================
@@ -61,7 +62,7 @@ function CategoryMenu() {
 // =================================================================
 
   return (
-    <div>
+    <Container width='100%' align='center'>
       <Heading>Choose a Category:</Heading>
       {categories.map((item) => (
         <Button
@@ -76,7 +77,7 @@ function CategoryMenu() {
           {item.name}
         </Button>
       ))}
-    </div>
+    </Container>
   );
 }
 

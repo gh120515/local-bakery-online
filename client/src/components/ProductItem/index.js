@@ -11,19 +11,17 @@ import { FaCartPlus, FaHeartCirclePlus } from 'react-icons/fa6';
 
 import {
   Image,
+  useDisclosure,
   Button,
   Text,
   Card, 
   CardBody, 
   CardFooter, 
   Heading, 
-  VStack, 
   Divider,
   Stack,
   ButtonGroup,
   useToast,
-  Box,
-  GridItem,
 } from '@chakra-ui/react'
 
 // =================================================================
@@ -73,11 +71,11 @@ function ProductItem(item) {
 // 
 // =================================================================
 
+  // const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
-    <GridItem>
-    <VStack textAlign={'center'}>
-      <Card maxW='sm' align={'center'}>
-        <CardBody>
+      <Card align={'center'} mb='2' >
+        <CardBody >
           <Link to={`/products/${_id}`}>
             <Image
               src={`/images/${image}`}
@@ -114,8 +112,6 @@ function ProductItem(item) {
           </ButtonGroup>
         </CardFooter>
       </Card>
-    </VStack>
-    </GridItem>
   );
 }
 

@@ -7,6 +7,8 @@ import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
+import { Outlet } from "react-router-dom"
+
 // Chakra Components
 
 import {
@@ -27,14 +29,13 @@ import {
   CardBody, 
   CardFooter, 
   Heading, 
-  HStack, 
+  VStack, 
   Divider,
   Container,
   Grid,
   GridItem,
+  Stack,
 } from '@chakra-ui/react'
-import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
-import { FiShoppingCart } from 'react-icons/fi'
 
 // =================================================================
 // 
@@ -68,7 +69,7 @@ function ProductList() {
     }
   }, [data, loading, dispatch]);
 
-  function filterProducts() {
+  const filterProducts = () => {
     if (!currentCategory) {
       return state.products;
     }
@@ -85,11 +86,21 @@ function ProductList() {
 // =================================================================
 
   return (
-    <Container>
-      <Heading size='lg'>Our Products:</Heading>
+
+    <Box p={4}>
+      <Heading textAlign={'center'}>Our Products:</Heading>
+
+      <Container maxW={'6xl'} mt={10}>
+      <VStack textAlign={'center'}>
+      
       {state.products.length ? (
-        <div className="flex-row">
-          {filterProducts().map((product) => (
+        <SimpleGrid 
+        spacing={10}
+        minChildWidth={300}
+        bg={'green.50'}
+        columns={{ base: 1, md: 2, lg: 4 }}
+        >
+          {filterProducts && filterProducts().map((product) => (
             <ProductItem
               key={product._id}
               _id={product._id}
@@ -99,12 +110,16 @@ function ProductList() {
               ingredients={product.ingredients}
             />
           ))}
-        </div>
+        </SimpleGrid>
       ) : (
-        <h3>You haven't added any products yet!</h3>
+        <Heading size='md'>You haven't added any products yet!</Heading>
       )}
+      
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </Container>
+      
+      </VStack>
+      </Container>
+      </Box>
   );
 }
 

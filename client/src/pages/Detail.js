@@ -14,9 +14,22 @@ import { QUERY_PRODUCTS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 import spinner from '../assets/spinner.gif';
 
+import { FaCartPlus, FaHeartCirclePlus } from 'react-icons/fa6';
+
 // Chakra components
 
-import { Container } from "@chakra-ui/react";
+import {
+  Heading,
+  Container,
+  useDisclosure,
+  Button,
+  ButtonGroup,
+  Text,
+  useToast,
+  VStack,
+  Card,
+  CardBody,
+} from '@chakra-ui/react'
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -85,40 +98,66 @@ function Detail() {
     idbPromise('cart', 'delete', { ...currentProduct });
   };
 
+  // Chakra functions
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast = useToast()
+
   return (
-    <>
+    
+    <Container pt={{ base: '160px',  md: '80px'}} align={'center'}>
+      <Card align={'center'} mb='2'>
+      <CardBody >
       {currentProduct && cart ? (
-        <div className="container my-1">
-          <Link to="/" >← Back to Products</Link>
+        
+          <>
+          <Button bg='green.200' >
+            <Link to="/catalogue" >← Back to Products</Link>
+          </Button>
+        
+          <Heading>{currentProduct.name}</Heading>
+          <Text>{currentProduct.description}</Text>
 
-          <h2>{currentProduct.name}</h2>
+          <Heading size='lg'>Ingredients</Heading>
+          <Text>{currentProduct.ingredients}</Text>
 
-          <p>{currentProduct.description}</p>
+          <Heading size='md' fontWeight={'bold'}>Price: </Heading>
+          <Text color='blue.600' fontSize='2xl'>
+          ${currentProduct.price}{' '}
+            </Text>
+          <>
 
-          <h4>Ingredients</h4>
+          <VStack>
+          <ButtonGroup spacing='2' m='1rem' >
+            <Button onClick={() => { addToCart(); toast({ 
+              description: 'Added to Cart!',
+              // status: 'success',
+              duration: 9000,
+              isClosable: true,
+              });}} 
+              variant='solid'
+              colorScheme='green'
+              >
+            <FaCartPlus size='2rem'/>
+            <Text>Add to Cart</Text>
+            </Button>
+            {/* <Button colorScheme='pink'><FaHeartCirclePlus size='2rem' /></Button> */}
+          </ButtonGroup>
+          </VStack>
 
-          <p>{currentProduct.ingredients}</p>
-
-          <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to Cart</button>
-            <button
-              disabled={!cart.find((p) => p._id === currentProduct._id)}
-              onClick={removeFromCart}
-            >
-              Remove from Cart
-            </button>
-          </p>
+          </>
 
           <img
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
-        </div>
+        </>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
       <Cart />
-    </>
+      </CardBody>
+      </Card>
+    </Container>
+
   );
 }
 
