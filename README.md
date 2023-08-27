@@ -1,5 +1,7 @@
 # Local Bakery - Online Webpage
 
+[Deployed Link](https://su-bakery-v1-9252c425e38d.herokuapp.com/)
+
 ![Screenshot of the landing page](client/public/screenshots/landing.png)
 
 ![Screenshot of the mobile layout](client/public/screenshots/mobile.png)
